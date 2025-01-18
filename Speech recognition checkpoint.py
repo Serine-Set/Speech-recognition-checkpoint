@@ -1,3 +1,20 @@
+# What You're Aiming For
+# Improve the Speech Recognition App
+
+# In this exercise, you will improve the Speech Recognition App by adding some features to enhance its functionality.
+
+# Instructions
+# Include a new option for users to select the speech recognition API they want to use. In addition to Google Speech Recognition, consider other APIs available in the provided libraries.
+# Improve the error handling in the transcribe_speech() function to provide more meaningful error messages to the user.
+# Add a feature to allow the user to save the transcribed text to a file.
+# Add a feature to allow the user to choose the language they are speaking in, and configure the speech recognition API to use that language.
+# Add a feature to allow the user to pause and resume the speech recognition process.
+# Note:
+
+# When adding new features, be sure to test the app thoroughly to ensure that it is working correctly. 
+# Also, consider the user experience and design the app to be intuitive and easy to use. 
+# Finally, if you encounter any issues or challenges, don't hesitate to consult the documentation or seek help from the community.
+
 import speech_recognition as sr
 import streamlit as st
 
@@ -16,7 +33,6 @@ def transcribe_speech(recognizer, audio, api, language):
             return recognizer.recognize_sphinx(audio)
         elif api == "IBM Watson":
             # IBM Watson API requires a key, so you'll need to implement this based on your credentials
-            # For this example, we'll assume the IBM Watson API is available
             return recognizer.recognize_ibm(audio, language=language)
         else:
             raise ValueError("Unsupported API selection")
@@ -68,12 +84,9 @@ def main():
     # Pause and resume feature (Simple simulation with buttons)
     if st.button("Pause"):
         st.write("Speech recognition paused.")
-        # A real pause and resume implementation would be complex and depend on the API's capability.
-        # This could involve stopping and resuming the microphone input stream.
 
     if st.button("Resume"):
         st.write("Speech recognition resumed.")
-        # In reality, you'd continue the recording process here or start a new one.
 
 if __name__ == "__main__":
     main()
